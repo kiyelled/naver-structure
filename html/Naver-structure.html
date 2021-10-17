@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>네이버 레이아웃</title>
+    <style> /*기본틀*/
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+        header {
+            margin: auto;
+            width: 1200px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        main {
+            margin: auto;
+            width: 1200px;
+            min-height: 600px;
+            position: relative;
+            background: #ffffff;
+            border-top: 1px solid #f1f3f6;
+        }
+        footer {
+            margin: auto;
+            padding-top: 20px;
+            width: 1200px;
+            heigt: 100%;
+            border-top: 1px solid #f1f3f6;
+        }
+    </style>
+    <style>/*헤더부분*/
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        fieldset {
+            border: none;
+        }
+        .links {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .link-text {
+            font-size: 12px;
+            margin-left: 5px;
+            color: #626262;
+        }
+        .logo-search-box {
+            display: flex;
+            flex-flow: row nowrap;
+            padding-left: 100px;
+        }
+        .logo-image {
+            padding-top: 14px;
+            width: 180px;
+            height: 36px;
+        }
+        .search-box {
+            width: 540px;
+            height: 50px;
+            border: 2px solid #19cd60;
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            flex: 9;
+            height: 46px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+        }
+        .search-box button {
+            flex: 1;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: #19cd60;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        header > nav {
+            width: 100%;
+            height: 46px;
+            position: absolute;
+            bottom: 0;
+        }
+        .nav-items {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: bold;
+            border-top: 1px solid #f1f3f6;
+        }
+        .nav-items ul > li {
+            display: inline-block;
+            margin-left: 8px;
+        }
+        .nav-items ul > li:nth-child(-n + 8) > a {
+            color: #19cd60;
+        }
+        .nav-items ul > li > a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <style> /*메인부분*/
+        .mainbox {
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .main1 {
+            width: 800px;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+        }
+        .main2 {
+            width: 400px;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+        }
+        .login {
+            width: 360px;
+            height: 120px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .main-ad {
+            width: 760px;
+            height: 120px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .main-news {
+            width: 760px;
+            height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .issue {
+            width: 360px;
+            height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .news-stand {
+            width: 760px;
+            height: 300px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .side-ad {
+            width: 360px;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+        .goodtoread-today {
+            width: 760px;
+            height: 1200px;
+            border: 1px solid gray;
+        }
+        .trend-shopping {
+            width: 360px;
+            height: 800px;
+            border: 1px solid gray;
+        }
+    </style>
+    <style> /*푸터부분*/
+        .footer-box {
+            display: flex;
+            flex-flow: column;
+        }
+        .advertisement {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            border-bottom: 1px solid #f1f3f6;
+        }
+        .advertisement-items {
+            width: 300px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-evenly;
+        }
+        .adivertisement-title {
+        }
+        .adivertisement-title > h5 {
+            color: #19cd60;
+            line-height: 2px;
+        }
+        .advertisement-title > a {
+            float: right;
+            text-decoration: none;
+            color: black;
+            line-height: 2px;
+        }
+        .advertisement-items:hover > a{
+            text-decoration: underline;
+            color: black;
+        }
+        .advertisement-items > picture {
+            float: left;
+        }
+        .notice {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f3f6;
+        }
+        .notice > a {
+            text-decoration: none;
+            color: black;
+        }
+        .notice:hover > a {
+            text-decoration: underline;
+            color: black;
+        }
+        .notice-item {
+            width: 300px;
+            padding-left: 20px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: left;
+        }
+        .notice-info {
+            width: 300px;
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            justify-content: right;
+        }
+        .etc-box {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f3f6;
+        }
+        .etc-box-1 {
+            line-height: 2px;
+            display: flex;
+            flex-flow: column;
+            font-size: 10px;
+        }
+        .etc-box-1-item {
+            display: flex;
+            align-items: center;
+        }
+        .etc-box-1-item ul > li {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .etc-box-2 {
+            width: 160px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .bottom-box {
+            width: 100%;
+            display: flex;
+            padding-top: 20px;
+            font-size: 12px;
+        }
+        .bottom-box ul > li {
+            display: inline-block;
+            margin-left: 6px;
+        }
+        .bottom-box ul > li:last-child {
+            font-weight: bold;
+        }
+        .text-bold-12 {
+            font-weight: bold;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="links">
+            <a href="" class="link-text">네이버를 시작페이지로</a>
+            <a href="" class="link-text">쥬니어네이버</a>
+            <a href="" class="link-text">해피빈</a>
+        </div>
+        <div class="logo-search-box">
+            <a href=""><img src="../../Desktop/cs/image/naver-logo.png" class="logo-image"/></a>
+            <form>
+                <fieldset>
+                    <legend style="display: none">비밀</legend>
+                    <div class="search-box">
+                        <input type="text" maxlength="200"/>
+                        <button type="submit">
+                            검색
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <nav>
+            <div class="nav-items">
+                <ul>
+                    <li><a href="">메일</a></li>
+                    <li><a href="">카페</a></li>
+                    <li><a href="">블로그</a></li>
+                    <li><a href="">지식iN</a></li>
+                    <li><a href="">쇼핑</a></li>
+                    <li><a href="">쇼핑(Live)</a></li>
+                    <li><a href="">Pay</a></li>
+                    <li><a href="">TV</a></li>
+                    <li><a href="">사전</a></li>
+                    <li><a href="">뉴스</a></li>
+                    <li><a href="">증권</a></li>
+                    <li><a href="">부동산</a></li>
+                    <li><a href="">지도</a></li>
+                    <li><a href="">영화</a></li>
+                    <li><a href="">뮤직</a></li>
+                    <li><a href="">책</a></li>
+                    <li><a href="">웹툰</a></li>
+                </ul>
+                <div>
+                    <span style="color: #626262; font-size: 9pt">미세 </span>
+                    <span style="font-size: 10pt">😃좋음</span>
+                    <span style="color: #626262; font-size: 9pt">초미세 </span>
+                    <span style="font-size: 10pt">😃좋음</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="mainbox">
+            <div class="main1">
+                <div class="main-ad">
+                    메인 광고창
+                </div>
+                <div class="main-news">
+                    메인 뉴스창
+                </div>
+                <div class="news-stand">
+                    뉴스스탠드창
+                </div>
+                <div class="goodtoread-today">
+                    오늘 읽을만한 글
+                </div>
+            </div>
+
+            <div class="main2">
+                <div class="login">
+                    로그인창
+                </div>
+                <div class="issue">
+                    이슈창
+                </div>
+                <div class="side-ad">
+                    사이드 광고창
+                </div>
+                <div class="trend-shopping">
+                    트렌드 쇼핑창
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-box">
+            <div class="advertisement">
+                <div class="advertisement-items">
+                    <div class="picture">
+                        <img src="" width="160px" height="120px">
+                    </div>
+                    <div class="adivertisement-title">
+                        <h5>광고 제목</h5>
+                        <a href="" style="font-weight: bold; font-size: 15px">광고 링크</a>
+                        <p style="font-size: 13px; color: #626262">광고설명<br>광고설명</p>
+                    </div>
+                </div>
+                <div class="advertisement-items">
+                    <div class="picture">
+                        <img src="" width="160px" height="120px">
+                    </div>
+                    <div class="adivertisement-title">
+                        <h5>광고 제목</h5>
+                        <a href="" style="font-weight: bold; font-size: 15px">광고 링크</a>
+                        <p style="font-size: 13px; color: #626262">광고설명<br>광고설명</p>
+                    </div>
+                </div>
+                <div class="advertisement-items">
+                    <div class="picture">
+                        <img src="" width="160px" height="120px">
+                    </div>
+                    <div class="adivertisement-title">
+                        <h5>광고 제목</h5>
+                        <a href="" style="font-weight: bold; font-size: 15px">광고 링크</a>
+                        <p style="font-size: 13px; color: #626262">광고설명<br>광고설명</p>
+                    </div>
+                </div>
+            </div>
+            <div class="notice">
+                <div class="notice-item">
+                    <a href="" style="font-weight: bold; font-size: 13px">공지사항</a>
+                </div>
+                <div class="notice-info">
+                    <a href="" style="font-weight: bold; font-size: 13px">서비스 전체보기</a>
+                </div>
+            </div>
+            <div class="etc-box">
+                <div class="etc-box-1">
+                    <div class="etc-box-1-item">
+                        <span class="text-bold-12">Creators</span>
+                        <ul>
+                            <li><a href="" style="font-size: 10pt">크리에이터</a></li>
+                            <li><a href="" style="font-size: 10pt">스몰비즈니스</a></li>
+                        </ul>
+                    </div>
+                    <div class="etc-box-1-item">
+                        <span class="text-bold-12">Partners</span>
+                        <ul style="line-height: 2px">
+                            <li><a href="" style="font-size: 10pt">비즈니스 광고</a></li>
+                            <li><a href="" style="font-size: 10pt">스토어 개설</a></li>
+                            <li><a href="" style="font-size: 10pt">지역업체 등록</a></li>
+                        </ul>
+                    </div>
+                    <div class="etc-box-1-item">
+                        <span class="text-bold-12">Developers</span>
+                        <ul>
+                            <li><a href="" style="font-size: 10pt">네이버 개발자센터</a></li>
+                            <li><a href="" style="font-size: 10pt">오픈API</a></li>
+                            <li><a href="" style="font-size: 10pt">오픈소스</a></li>
+                            <li><a href="" style="font-size: 10pt">네이버 D2</a></li>
+                            <li><a href="" style="font-size: 10pt">네이버 D2SF</a></li>
+                            <li><a href="" style="font-size: 10pt">네이버 랩스</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="etc-box-2">
+                    <div class="b2-content">
+                        <div class="text-bold-12" >웨일 브라우저</div>
+                        <div><a href="" style="font-size: 9pt; color: #626262">다운받기</a></div>
+                    </div>
+                    <a href=""><img src="" width="50px" height="50px"/></a>
+                </div>
+                <div class="etc-box-2">
+                    <div class="b2-content">
+                        <div class="text-bold-12">프로젝트 꽃</div>
+                        <div><a href="" style="font-size: 9pt; color: #626262">바로가기</a></div>
+                    </div>
+                    <a href=""><img src="" width="50px" height="50px"/></a>
+                </div>
+            </div>
+            <div class="bottom-box">
+                <ul>
+                    <li><a href="">회사소개</a></li>
+                    <li><a href="">인재채용</a></li>
+                    <li><a href="">제휴제안</a></li>
+                    <li><a href="">이용약관</a></li>
+                    <li><a href="">개인정보처리방침</a></li>
+                    <li><a href="">청소년보호정책</a></li>
+                    <li><a href="">네이버 정책</a></li>
+                    <li><a href="">고객센터</a></li>
+                    <li><a href="">&copy; NAVER Corp.</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>
